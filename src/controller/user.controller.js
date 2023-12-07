@@ -8,11 +8,17 @@ const userControllerValidate = async (req, res) => {
 
 const getAllUserController = async (_req, res) => {
   const { data } = await service.getUsers();
-  console.log(data);
   return res.status(200).json(data);
+};
+
+const getOneUserController = async (req, res) => {
+  const { id } = req.params;
+  const { status, data } = await service.getOneUser(id);
+  return res.status(status).json(data);
 };
 
 module.exports = {
   userControllerValidate,
   getAllUserController,
+  getOneUserController,
 };

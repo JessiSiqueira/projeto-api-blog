@@ -1,6 +1,10 @@
 const user = require('express').Router();
 
-const { userControllerValidate, getAllUserController } = require('../controller/user.controller');
+const { 
+  userControllerValidate, 
+  getAllUserController, 
+  getOneUserController, 
+} = require('../controller/user.controller');
 const { 
   validateInputEmail, 
   validateName, 
@@ -19,5 +23,7 @@ user.post(
 );
 
 user.get('/', validateToken, getAllUserController);
+
+user.get('/:id', validateToken, getOneUserController);
 
 module.exports = user;
