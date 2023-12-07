@@ -5,6 +5,12 @@ const createCategoriesService = async (name) => {
   return { status: 201, data: user };
 };
 
+const getCategories = async () => {
+  const categories = await Category.findAll();
+  return { data: categories };
+};
+
 module.exports = {
   createCategoriesService,
+  getCategories,
 };
